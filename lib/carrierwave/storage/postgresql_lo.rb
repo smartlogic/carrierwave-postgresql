@@ -30,7 +30,9 @@ module CarrierWave
         end
 
         def delete
-          connection.lo_unlink(identifier)
+          if size > 0
+            connection.lo_unlink(identifier)
+          end
         end
 
         def content_type
